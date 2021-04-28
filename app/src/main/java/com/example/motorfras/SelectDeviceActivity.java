@@ -1,4 +1,4 @@
-package com.example.motorfras;
+package com.example.motorfras;s
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
