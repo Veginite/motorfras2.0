@@ -1,4 +1,4 @@
-package com.example.motorfras;s
+package com.example.motorfras;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -18,7 +18,7 @@ import java.util.Set;
 
 public class SelectDeviceActivity extends AppCompatActivity {
 
-    @Overrided
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_device);
