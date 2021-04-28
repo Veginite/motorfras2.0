@@ -18,7 +18,7 @@ import java.util.Set;
 
 public class SelectDeviceActivity extends AppCompatActivity {
 
-    @Override
+    @Overrided
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_device);
