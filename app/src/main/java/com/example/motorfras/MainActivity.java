@@ -11,7 +11,6 @@ import java.util.Set;
 public class MainActivity extends AppCompatActivity {
     android.widget.Button switchToSettings;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
