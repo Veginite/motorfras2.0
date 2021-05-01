@@ -15,7 +15,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Timer extends AppCompatActivity {
-    android.widget.Button backToSettings;
     android.widget.TextView timer1;
     int tHour, tMinute;
 
@@ -59,17 +58,5 @@ public class Timer extends AppCompatActivity {
         });
 
 
-        backToSettings=findViewById(R.id.Settings);
-        backToSettings.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                openSettings();
-            }
-        });
     }
-    public void openSettings(){
-        android.content.Intent intent= new Intent(this, Settings.class);
-        startActivity(intent);
-    }
-
 }
