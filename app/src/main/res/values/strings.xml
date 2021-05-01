@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Motorfras</string>
+    <string name="onDisplayName">Motorvarmaren är på</string>
+    <string name="offDisplayName">Motorvarmaren är av</string>
 </resources>
