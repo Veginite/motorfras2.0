@@ -26,15 +26,5 @@
     </com.google.android.material.appbar.AppBarLayout>
 
 
-    <ImageView
-        android:id="@+id/bluetoothIv"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
-        app:srcCompat="@drawable/ic_bulb_light" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

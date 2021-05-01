@@ -20,6 +20,8 @@ public class Bluetooth extends AppCompatActivity {
 
         setSupportActionBar(findViewById(R.id.mainToolbar));
         Objects.requireNonNull(getSupportActionBar()).setTitle("Bluetooth");
+
+
     }
 
     //------------- MENU OPTIONS -------------

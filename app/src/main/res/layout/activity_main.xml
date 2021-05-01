@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
@@ -22,34 +24,63 @@
             android:theme="?attr/actionBarTheme" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <Button
-        android:id="@+id/Settings"
-        android:layout_width="292sp"
-        android:layout_height="129sp"
-        android:text="Settings"
-        android:textSize="30sp"
-        app:backgroundTint="#00BCD4"
-        app:layout_constraintBottom_toBottomOf="parent"
+
+    <ImageView
+        android:id="@+id/lampIv"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+
+        android:layout_marginTop="44dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switchOnOff" />
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        app:srcCompat="@drawable/ic_baseline_lightbulb_off" />
 
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/switchOnOff"
         android:layout_width="282sp"
         android:layout_height="96sp"
-        android:layout_marginBottom="528dp"
+        android:layout_marginTop="24dp"
         android:gravity="center"
+        android:text="@string/manualOverride"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/black"
-        android:textOff="@string/offDisplayName"
-        android:textOn="@string/onDisplayName"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/lampIv" />
+
+    <Button
+        android:id="@+id/schedule"
+        android:layout_width="292sp"
+        android:layout_height="80sp"
+        android:layout_marginBottom="220dp"
+        android:text="Schedule"
+        android:textSize="30sp"
+        app:backgroundTint="#00BCD4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switchOnOff"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/Settings"
+        android:layout_width="292sp"
+        android:layout_height="80sp"
+        android:layout_marginBottom="116dp"
+        android:text="Settings"
+        android:textSize="30sp"
+        app:backgroundTint="#00BCD4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/schedule"
+        app:layout_constraintVertical_bias="1.0" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -57,18 +88,5 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="-31sp" />
-
-    <TextView
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:gravity="center"
-        android:text="@string/firstPageName"
-        android:textSize="35sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

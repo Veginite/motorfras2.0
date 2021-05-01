@@ -9,12 +9,15 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.ImageView;
 
 import java.util.Objects;
-import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
-    android.widget.Button switchToSettings;
+    ImageView lampIv;
+    Button switchToSchedule, switchToSettings;
     SwitchCompat switchCompat;
 
     @Override
@@ -25,7 +28,19 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(findViewById(R.id.mainToolbar));
         Objects.requireNonNull(getSupportActionBar()).setTitle("Welcome!");
 
-        switchToSettings=findViewById(R.id.Settings);
+        lampIv              = findViewById(R.id.lampIv);
+        switchToSchedule    = findViewById(R.id.schedule);
+        switchToSettings    = findViewById(R.id.Settings);
+        switchCompat        = findViewById(R.id.switchOnOff);
+
+
+        switchToSchedule.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                openSettings();
+            }
+        });
+
         switchToSettings.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -33,9 +48,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
+                if(isChecked)
+                {
+                    lampIv.setImageResource(R.drawable.ic_baseline_lightbulb_on);
+                }
+                else
+                {
+                    lampIv.setImageResource(R.drawable.ic_baseline_lightbulb_off);
+                }
+            }
+        });
+
         //---------------------------------------------------------------------
-        //Assign Variable
-        switchCompat = findViewById(R.id.switchOnOff);
 
         //save switch state in shared preferences
         SharedPreferences sharedPreferences = getSharedPreferences( "save", MODE_PRIVATE);
