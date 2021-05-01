@@ -32,12 +32,8 @@ public class MainActivity extends AppCompatActivity {
                 openSettings();
             }
         });
-    }
 
-    public void openSettings(){
-        android.content.Intent intent= new Intent(this, Settings.class);
-        startActivity(intent);
-
+        //---------------------------------------------------------------------
         //Assign Variable
         switchCompat = findViewById(R.id.switchOnOff);
 
@@ -49,20 +45,56 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (switchCompat.isChecked()){
                     //When switch checked
-                    SharedPreferences.Editor editor = getSharedPreferences("save", MODE_PRIVATE).edit();
+                    SharedPreferences.Editor editor = getSharedPreferences("save"
+                            ,MODE_PRIVATE).edit();
                     editor.putBoolean("value", true);
                     editor.apply();
                     switchCompat.setChecked(true);
                 }
                 else{
                     //When switch unchecked
-                    SharedPreferences.Editor editor = getSharedPreferences("save", MODE_PRIVATE).edit();
+                    SharedPreferences.Editor editor = getSharedPreferences("save"
+                            ,MODE_PRIVATE).edit();
                     editor.putBoolean("value", false);
                     editor.apply();
                     switchCompat.setChecked(false);
                 }
             }
+            //---------------------------------------------------------------------
+
         });
+
+        /*
+        //saving the state of the switch
+        SharedPreferences sharedPrefs = getSharedPreferences("com.example.xyz"
+                ,MODE_PRIVATE);
+        switchCompat.setChecked(sharedPrefs.getBoolean("onOrOff", true));
+
+         */
+    }
+
+    public void openSettings(){
+        android.content.Intent intent= new Intent(this, Settings.class);
+        startActivity(intent);
+
+        /*
+            @Override
+            public void onClick(View v){
+                if (switchCompat.isChecked()){
+                    SharedPreferences.Editor editor = getSharedPreferences("com.example.xyz"
+                            ,MODE_PRIVATE).edit();
+                    editor.putBoolean("onOrOff", true);
+                    editor.commit();
+                }
+                else{
+                    SharedPreferences.Editor editor = getSharedPreferences("com.example.xyz"
+                            ,MODE_PRIVATE).edit();
+                    editor.putBoolean("onOrOff", false);
+                    editor.commit();
+                }
+            }*/
+
+
     }
 
     //------------- MENU OPTIONS -------------
