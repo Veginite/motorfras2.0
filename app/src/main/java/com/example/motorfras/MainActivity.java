@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         //save switch state in shared preferences
         SharedPreferences sharedPreferences = getSharedPreferences( "save", MODE_PRIVATE);
-        switchCompat.setChecked(sharedPreferences.getBoolean("value", true));
+        switchCompat.setChecked(sharedPreferences.getBoolean("value", false));
         switchCompat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
