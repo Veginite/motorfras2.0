@@ -6,9 +6,12 @@ import android.os.Bundle;
 
 public class Bluetooth extends AppCompatActivity {
 
+    android.widget.Button switchToMainActivity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bluetooth);
+
     }
 }
