@@ -6,4 +6,62 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="301dp"
+        android:layout_height="100dp"
+        android:background="#00B0E0E6"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:text="Startsida"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="60dp"
+        tools:layout_editor_absoluteX="141dp"
+        tools:layout_editor_absoluteY="56dp" />
+
+    <Button
+        android:id="@+id/Settings"
+        android:layout_width="292dp"
+        android:layout_height="129dp"
+        android:text="Settings"
+        android:textSize="30dp"
+        app:backgroundTint="#00BCD4"
+        tools:layout_editor_absoluteX="150dp"
+        tools:layout_editor_absoluteY="492dp" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="282dp"
+        android:layout_height="96dp"
+        android:checked="false"
+        android:gravity="center"
+        android:text="AV/PÅ - knapp"
+        android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+        android:textOff="Motorvärmaren är av"
+        android:textOn="Motorvärmaren är på"
+        android:textSize="30dp"
+        tools:layout_editor_absoluteX="150dp"
+        tools:layout_editor_absoluteY="365dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="-31dp" />
+
+    <EditText
+        android:id="@+id/editTextTextMultiLine"
+        android:layout_width="261dp"
+        android:layout_height="132dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:text="Skapare:"
+        android:textAppearance="@style/CardView.Dark"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="766dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
