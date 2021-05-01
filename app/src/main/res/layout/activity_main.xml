@@ -7,6 +7,22 @@
     android:background="@color/material_on_background_emphasis_medium"
     tools:context=".MainActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/mainToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
     <Button
         android:id="@+id/Settings"
         android:layout_width="292sp"
@@ -23,7 +39,7 @@
         android:id="@+id/switchOnOff"
         android:layout_width="282sp"
         android:layout_height="96sp"
-        android:layout_marginBottom="212dp"
+        android:layout_marginBottom="528dp"
         android:gravity="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/black"
@@ -32,9 +48,9 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.596"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"

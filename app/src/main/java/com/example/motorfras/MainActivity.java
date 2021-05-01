@@ -6,8 +6,11 @@ import androidx.appcompat.widget.SwitchCompat;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
+import java.util.Objects;
 import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        setSupportActionBar(findViewById(R.id.mainToolbar));
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Welcome!");
 
         switchToSettings=findViewById(R.id.Settings);
         switchToSettings.setOnClickListener(new View.OnClickListener(){
@@ -58,4 +64,27 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    //------------- MENU OPTIONS -------------
+
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.basic_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        if(item.getItemId() == R.id.about)
+        {
+            //Do stuff
+            return true;
+        }
+        else if(item.getItemId() == R.id.support)
+        {
+            //Do stuff
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    //----------------------------------------
 }

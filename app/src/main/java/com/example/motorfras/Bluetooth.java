@@ -7,6 +7,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
+import java.util.Objects;
+
 public class Bluetooth extends AppCompatActivity {
 
     private Button switchToMainActivity;
@@ -17,6 +19,7 @@ public class Bluetooth extends AppCompatActivity {
         setContentView(R.layout.activity_bluetooth);
 
         setSupportActionBar(findViewById(R.id.mainToolbar));
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Bluetooth");
     }
 
     //------------- MENU OPTIONS -------------
