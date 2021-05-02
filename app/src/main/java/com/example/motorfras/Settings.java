@@ -21,20 +21,6 @@ public class Settings extends AppCompatActivity {
 
         setSupportActionBar(findViewById(R.id.mainToolbar));
         getSupportActionBar().setTitle("Settings");
-
-        Tid = findViewById(R.id.Tid);
-
-        Tid.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openTimer();
-            }
-        });
-    }
-
-    public void openTimer() {
-        Intent intent = new Intent(this, Timer.class);
-        startActivity(intent);
     }
 
     //------------- MENU OPTIONS -------------
