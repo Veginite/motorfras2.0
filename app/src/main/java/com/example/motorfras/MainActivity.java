@@ -3,6 +3,9 @@ package com.example.motorfras;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
+import android.app.TimePickerDialog;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.tv.TvContract;
@@ -13,13 +16,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.TimePicker;
 
+import java.nio.charset.Charset;
 import java.util.Objects;
+import java.util.UUID;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
     ImageView lampIv;
     Button launchSchedule, launchSettings;
     SwitchCompat switchCompat;
+
+    private static final UUID INSECURE_UUID = UUID.fromString("041de592-ab3c-11eb-bcbc-0242ac130002");
+    BluetoothAdapter mBluetoothAdapter;
+    BluetoothConnectionService mBluetoothConnection;
+    BluetoothDevice mBTDevice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,12 +65,18 @@ public class MainActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
                 if(isChecked)
                 {
+                    /*startBTConnection(mBTDevice, INSECURE_UUID);
 
+                    String msg = "1";
+                    mBluetoothConnection.write(msg.getBytes(Charset.defaultCharset()));*/
 
                     lampIv.setImageResource(R.drawable.ic_baseline_lightbulb_on);
                 }
                 else
                 {
+                   /* String msg = "1";
+                    mBluetoothConnection.write(msg.getBytes(Charset.defaultCharset()));*/
+
                     lampIv.setImageResource(R.drawable.ic_baseline_lightbulb_off);
                 }
             }
@@ -104,6 +121,10 @@ public class MainActivity extends AppCompatActivity {
         android.content.Intent intent = new Intent(this, Settings.class);
         startActivity(intent);
     }
+
+    /*public void startBTConnection(BluetoothDevice device, UUID uuid){
+        mBluetoothConnection.startClient(device, uuid);
+    }*/
 
     //------------- MENU OPTIONS -------------
 

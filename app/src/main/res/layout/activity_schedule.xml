@@ -27,13 +27,16 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:stretchColumns="1"
+        android:shrinkColumns="1"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         tools:context=".Schedule">
 
         <!--MONDAY-->
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical">
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/textViewMonday"
@@ -46,7 +49,9 @@
                 android:id="@+id/timeMonday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="time" />
+                android:text="@string/defaultTime"
+                android:gravity="center_horizontal"
+                android:textSize="20sp"/>
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switchMonday"
@@ -70,7 +75,9 @@
                 android:id="@+id/timeTuesday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="time" />
+                android:text="@string/defaultTime"
+                android:gravity="center_horizontal"
+                android:textSize="20sp"/>
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switchTuesday"
@@ -94,7 +101,9 @@
                 android:id="@+id/timeWednesday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="time" />
+                android:text="@string/defaultTime"
+                android:gravity="center_horizontal"
+                android:textSize="20sp"/>
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switchWednesday"
@@ -118,7 +127,9 @@
                 android:id="@+id/timeThursday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="text" />
+                android:text="@string/defaultTime"
+                android:gravity="center_horizontal"
+                android:textSize="20sp"/>
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switchThursday"
@@ -142,7 +153,9 @@
                 android:id="@+id/timeFriday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="text" />
+                android:text="@string/defaultTime"
+                android:gravity="center_horizontal"
+                android:textSize="20sp"/>
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switchFriday"
@@ -166,7 +179,9 @@
                 android:id="@+id/timeSaturday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="text" />
+                android:text="@string/defaultTime"
+                android:gravity="center_horizontal"
+                android:textSize="20sp"/>
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switchSaturday"
@@ -190,7 +205,9 @@
                 android:id="@+id/timeSunday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="text" />
+                android:text="@string/defaultTime"
+                android:gravity="center_horizontal"
+                android:textSize="20sp"/>
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switchSunday"
