@@ -3,4 +3,5 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="schedule_table_horizontal_margin">20dp</dimen>
     <dimen name="schedule_table_default_text_size">20sp</dimen>
+    <dimen name="schedule_table_layout_marginBottom">16dp</dimen>
 </resources>
