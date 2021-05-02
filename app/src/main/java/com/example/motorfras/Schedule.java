@@ -3,6 +3,7 @@ package com.example.motorfras;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
+import android.app.TimePickerDialog;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -11,14 +12,22 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
 
 public class Schedule extends AppCompatActivity {
+    android.widget.TextView timer1;
+    int tHour, tMinute;
+    SharedPreferences sp;
+    String timestr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,8 +103,36 @@ public class Schedule extends AppCompatActivity {
             tView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //Kalla på classen timer
+                    TimePickerDialog timePickerDialog = new TimePickerDialog(
+                            Schedule.this,
+                            new TimePickerDialog.OnTimeSetListener() {
+                                @Override
+                                public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                                    //Setup hour and minute
+                                    tHour = hourOfDay;
+                                    tMinute = minute;
+                                    timestr = tHour + ":" +tMinute;
+                                    //Store the value as a string
+                                    //Setup 24 hour time format
+                                    SimpleDateFormat f24Hours = new SimpleDateFormat(
+                                            "HH:mm"
+                                    );
 
+                                    try {
+                                        Date date = f24Hours.parse(timestr);
+                                        //Setup 12 hour time format
+                                        SimpleDateFormat f12hours = new SimpleDateFormat(
+                                                "hh:mm aa"
+                                        );
+                                        //User can chose time on text view
+                                        tView.setText(f12hours.format(date));
+
+                                    } catch (ParseException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            },24,0,true
+                    );
                 }
             });
         }
