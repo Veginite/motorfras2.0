@@ -21,7 +21,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Schedule" />
-        <activity android:name=".Bluetooth" />
         <activity android:name=".Settings" />
         <activity android:name=".Timer" />
     </application>

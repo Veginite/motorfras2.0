@@ -25,13 +25,6 @@ public class Settings extends AppCompatActivity {
         Tid = findViewById(R.id.Tid);
         Bluetooth = findViewById(R.id.Bluetooth);
 
-        Bluetooth.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openBluetooth();
-            }
-        });
-
         Tid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,10 +35,6 @@ public class Settings extends AppCompatActivity {
 
     public void openTimer() {
         Intent intent = new Intent(this, Timer.class);
-        startActivity(intent);
-    }
-    public void openBluetooth() {
-        Intent intent = new Intent(this, Bluetooth.class);
         startActivity(intent);
     }
 

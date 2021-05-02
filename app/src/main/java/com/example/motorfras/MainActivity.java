@@ -5,6 +5,7 @@ import androidx.appcompat.widget.SwitchCompat;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.tv.TvContract;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -53,6 +54,9 @@ public class MainActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
                 if(isChecked)
                 {
+                    BTConnection BT = new BTConnection();
+                    BT.BTConnection();
+
                     lampIv.setImageResource(R.drawable.ic_baseline_lightbulb_on);
                 }
                 else
