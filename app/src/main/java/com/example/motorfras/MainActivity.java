@@ -54,8 +54,7 @@ public class MainActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
                 if(isChecked)
                 {
-                    BTConnection BT = new BTConnection();
-                    BT.BTConnection();
+
 
                     lampIv.setImageResource(R.drawable.ic_baseline_lightbulb_on);
                 }
