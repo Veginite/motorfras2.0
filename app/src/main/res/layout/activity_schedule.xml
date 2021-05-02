@@ -42,12 +42,11 @@
                 android:text="Monday"
                 android:textSize="20sp"/>
 
-            <EditText
+            <TextView
                 android:id="@+id/timeMonday"
-                android:layout_width="1in"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="time" />
+                android:text="time" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switchMonday"
@@ -67,12 +66,11 @@
                 android:text="Tuesday"
                 android:textSize="20sp"/>
 
-            <EditText
+            <TextView
                 android:id="@+id/timeTuesday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="time" />
+                android:text="time" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switchTuesday"
@@ -92,12 +90,11 @@
                 android:text="Wednesday"
                 android:textSize="20sp"/>
 
-            <EditText
+            <TextView
                 android:id="@+id/timeWednesday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="time" />
+                android:text="time" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switchWednesday"
@@ -117,12 +114,11 @@
                 android:text="Thursday"
                 android:textSize="20sp"/>
 
-            <EditText
+            <TextView
                 android:id="@+id/timeThursday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="time" />
+                android:text="text" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switchThursday"
@@ -142,12 +138,11 @@
                 android:text="Friday"
                 android:textSize="20sp"/>
 
-            <EditText
+            <TextView
                 android:id="@+id/timeFriday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="time" />
+                android:text="text" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switchFriday"
@@ -167,12 +162,11 @@
                 android:text="Saturday"
                 android:textSize="20sp"/>
 
-            <EditText
+            <TextView
                 android:id="@+id/timeSaturday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="time" />
+                android:text="text" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switchSaturday"
@@ -192,12 +186,11 @@
                 android:text="Sunday"
                 android:textSize="20sp"/>
 
-            <EditText
+            <TextView
                 android:id="@+id/timeSunday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="time" />
+                android:text="text" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switchSunday"

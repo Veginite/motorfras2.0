@@ -49,13 +49,13 @@ public class Schedule extends AppCompatActivity {
 
         Set<Integer> textViewID = new HashSet<Integer>();
         textViewID.addAll(Arrays.asList(
-                R.id.textViewMonday,
-                R.id.textViewTuesday,
-                R.id.textViewWednesday,
-                R.id.textViewTuesday,
-                R.id.textViewFriday,
-                R.id.textViewSaturday,
-                R.id.textViewSunday));
+                R.id.timeMonday,
+                R.id.timeTuesday,
+                R.id.timeWednesday,
+                R.id.timeThursday,
+                R.id.timeFriday,
+                R.id.timeSaturday,
+                R.id.timeSunday));
 
         //---------------------------------------------------------------------
 
