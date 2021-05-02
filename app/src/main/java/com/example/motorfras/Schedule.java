@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,8 +15,8 @@ import android.widget.TextView;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Objects;
 import java.util.Set;
+
 
 public class Schedule extends AppCompatActivity {
 
@@ -48,10 +50,12 @@ public class Schedule extends AppCompatActivity {
 
         //---------------------------------------------------------------------
 
-        SharedPreferences dateStatePref = getSharedPreferences( "dateStates", MODE_PRIVATE);
-        SharedPreferences dateContentPref = getSharedPreferences( "dateContent", MODE_PRIVATE);
+        SharedPreferences dateStatePref = getSharedPreferences( "dateStates"
+                ,MODE_PRIVATE);
+        SharedPreferences dateContentPref = getSharedPreferences( "dateContent"
+                ,MODE_PRIVATE);
 
-        String days[] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+        String days[] = {"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
 
         Iterator<Integer> itViewText = textViewID.iterator();
         Iterator<Integer> itSwitch = switchID.iterator();
@@ -59,11 +63,7 @@ public class Schedule extends AppCompatActivity {
         {
             //---------------------------------------------------------------------
             SwitchCompat sView = findViewById(itSwitch.next());
-            TextView tView = findViewById(itViewText.next());
-
             sView.setChecked(dateStatePref.getBoolean("dateState" + days[i], false));
-            tView.setText(dateContentPref.getString("dateContent" + days[i], ""));
-
             int finalI = i;
             //Switch Event Listener
             sView.setOnClickListener(new View.OnClickListener() {
@@ -71,14 +71,16 @@ public class Schedule extends AppCompatActivity {
                 public void onClick(View v) {
                     if (sView.isChecked()){
                         //When switch checked
-                        SharedPreferences.Editor editor = getSharedPreferences("dateStates", MODE_PRIVATE).edit();
+                        SharedPreferences.Editor editor = getSharedPreferences("dateStates"
+                                ,MODE_PRIVATE).edit();
                         editor.putBoolean("dateState" + days[finalI], true);
                         editor.apply();
                         sView.setChecked(true);
                     }
                     else {
                         //When switch unchecked
-                        SharedPreferences.Editor editor = getSharedPreferences("dateStates", MODE_PRIVATE).edit();
+                        SharedPreferences.Editor editor = getSharedPreferences("dateStates"
+                                ,MODE_PRIVATE).edit();
                         editor.putBoolean("dateState" + days[finalI], false);
                         editor.apply();
                         sView.setChecked(false);
@@ -87,23 +89,13 @@ public class Schedule extends AppCompatActivity {
             });
             //---------------------------------------------------------------------
             //TextView Event Listener
+            TextView tView = findViewById(itViewText.next());
+            tView.setText(dateContentPref.getString("dateContent" + days[i], ""));
             tView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (sView.isChecked()){
-                        //When switch checked
-                        SharedPreferences.Editor editor = getSharedPreferences("dateStates", MODE_PRIVATE).edit();
-                        editor.putBoolean("dateState" + days[finalI], true);
-                        editor.apply();
-                        sView.setChecked(true);
-                    }
-                    else {
-                        //When switch unchecked
-                        SharedPreferences.Editor editor = getSharedPreferences("dateStates", MODE_PRIVATE).edit();
-                        editor.putBoolean("dateState" + days[finalI], false);
-                        editor.apply();
-                        sView.setChecked(false);
-                    }
+                    //Kalla på classen timer
+
                 }
             });
         }
