@@ -5,21 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
 
 import java.util.Objects;
 
-public class Bluetooth extends AppCompatActivity {
-
-    private Button switchToMainActivity;
+public class Schedule extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bluetooth);
+        setContentView(R.layout.activity_schedule);
 
         setSupportActionBar(findViewById(R.id.mainToolbar));
-        getSupportActionBar().setTitle("Bluetooth");
+        getSupportActionBar().setTitle("Schedule");
 
 
     }

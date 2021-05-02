@@ -17,7 +17,7 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     ImageView lampIv;
-    Button switchToSchedule, switchToSettings;
+    Button launchSchedule, launchSettings;
     SwitchCompat switchCompat;
 
     @Override
@@ -26,25 +26,25 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         setSupportActionBar(findViewById(R.id.mainToolbar));
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Welcome!");
+        getSupportActionBar().setTitle("Welcome!");
 
         lampIv              = findViewById(R.id.lampIv);
-        switchToSchedule    = findViewById(R.id.schedule);
-        switchToSettings    = findViewById(R.id.Settings);
+        launchSchedule      = findViewById(R.id.schedule);
+        launchSettings      = findViewById(R.id.Settings);
         switchCompat        = findViewById(R.id.switchOnOff);
 
 
-        switchToSchedule.setOnClickListener(new View.OnClickListener(){
+        launchSchedule.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                openSettings();
+                launchSchedule();
             }
         });
 
-        switchToSettings.setOnClickListener(new View.OnClickListener(){
+        launchSettings.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                openSettings();
+                launchSettings();
             }
         });
 
@@ -100,8 +100,14 @@ public class MainActivity extends AppCompatActivity {
          */
     }
 
-    public void openSettings(){
-        android.content.Intent intent= new Intent(this, Settings.class);
+    public void launchSchedule(){
+        android.content.Intent intent= new Intent(this, Schedule.class);
+        startActivity(intent);
+
+    }
+
+    public void launchSettings() {
+        android.content.Intent intent = new Intent(this, Settings.class);
         startActivity(intent);
 
         /*
@@ -120,8 +126,6 @@ public class MainActivity extends AppCompatActivity {
                     editor.commit();
                 }
             }*/
-
-
     }
 
     //------------- MENU OPTIONS -------------

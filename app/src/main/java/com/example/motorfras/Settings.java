@@ -20,7 +20,7 @@ public class Settings extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
         setSupportActionBar(findViewById(R.id.mainToolbar));
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Settings");
+        getSupportActionBar().setTitle("Settings");
 
         Tid = findViewById(R.id.Tid);
         Bluetooth = findViewById(R.id.Bluetooth);
