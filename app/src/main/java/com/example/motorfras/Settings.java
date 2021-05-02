@@ -12,7 +12,7 @@ import android.widget.Button;
 import java.util.Objects;
 
 public class Settings extends AppCompatActivity {
-    private Button Bluetooth;
+    private Button Tid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,21 +22,20 @@ public class Settings extends AppCompatActivity {
         setSupportActionBar(findViewById(R.id.mainToolbar));
         getSupportActionBar().setTitle("Settings");
 
-        //Tid = findViewById(R.id.Tid);
-        Bluetooth = findViewById(R.id.Bluetooth);
+        Tid = findViewById(R.id.Tid);
 
-        /*Tid.setOnClickListener(new View.OnClickListener() {
+        Tid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openTimer();
             }
-        });*/
+        });
     }
 
-    /*public void openTimer() {
+    public void openTimer() {
         Intent intent = new Intent(this, Timer.class);
         startActivity(intent);
-    }*/
+    }
 
     //------------- MENU OPTIONS -------------
 
