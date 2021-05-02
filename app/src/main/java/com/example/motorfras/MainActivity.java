@@ -63,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //---------------------------------------------------------------------
-
         //save switch state in shared preferences
         SharedPreferences sharedPreferences = getSharedPreferences( "save", MODE_PRIVATE);
         switchCompat.setChecked(sharedPreferences.getBoolean("value", false));
@@ -90,14 +89,6 @@ public class MainActivity extends AppCompatActivity {
             //---------------------------------------------------------------------
 
         });
-
-        /*
-        //saving the state of the switch
-        SharedPreferences sharedPrefs = getSharedPreferences("com.example.xyz"
-                ,MODE_PRIVATE);
-        switchCompat.setChecked(sharedPrefs.getBoolean("onOrOff", true));
-
-         */
     }
 
     public void launchSchedule(){
@@ -109,23 +100,6 @@ public class MainActivity extends AppCompatActivity {
     public void launchSettings() {
         android.content.Intent intent = new Intent(this, Settings.class);
         startActivity(intent);
-
-        /*
-            @Override
-            public void onClick(View v){
-                if (switchCompat.isChecked()){
-                    SharedPreferences.Editor editor = getSharedPreferences("com.example.xyz"
-                            ,MODE_PRIVATE).edit();
-                    editor.putBoolean("onOrOff", true);
-                    editor.commit();
-                }
-                else{
-                    SharedPreferences.Editor editor = getSharedPreferences("com.example.xyz"
-                            ,MODE_PRIVATE).edit();
-                    editor.putBoolean("onOrOff", false);
-                    editor.commit();
-                }
-            }*/
     }
 
     //------------- MENU OPTIONS -------------
