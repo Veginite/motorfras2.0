@@ -12,7 +12,7 @@ import android.widget.Button;
 import java.util.Objects;
 
 public class Settings extends AppCompatActivity {
-    private Button Bluetooth, Tid;
+    private Button Tid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,6 @@ public class Settings extends AppCompatActivity {
         getSupportActionBar().setTitle("Settings");
 
         Tid = findViewById(R.id.Tid);
-        Bluetooth = findViewById(R.id.Bluetooth);
 
         Tid.setOnClickListener(new View.OnClickListener() {
             @Override
