@@ -23,8 +23,8 @@ public class Timer extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_timer);
-        timer1 = findViewById(R.id.timer1);
+        //setContentView(R.layout.activity_timer);
+        //timer1 = findViewById(R.id.timer1);
 
         timer1.setOnClickListener(new View.OnClickListener() {
             @Override
