@@ -37,7 +37,7 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="@dimen/schedule_table_layout_marginBottom">
 
             <TextView
                 android:id="@+id/textViewMonday"
@@ -64,7 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="@dimen/schedule_table_layout_marginBottom">
 
             <TextView
                 android:id="@+id/textViewTuesday"
@@ -91,7 +91,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="@dimen/schedule_table_layout_marginBottom">
 
             <TextView
                 android:id="@+id/textViewWednesday"
@@ -118,7 +118,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="@dimen/schedule_table_layout_marginBottom">
 
             <TextView
                 android:id="@+id/textViewThursday"
@@ -145,7 +145,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="@dimen/schedule_table_layout_marginBottom">
 
             <TextView
                 android:id="@+id/textViewFriday"
@@ -172,7 +172,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="@dimen/schedule_table_layout_marginBottom">
 
             <TextView
                 android:id="@+id/textViewSaturday"
