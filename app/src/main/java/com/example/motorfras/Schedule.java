@@ -26,7 +26,6 @@ public class Schedule extends AppCompatActivity {
         getSupportActionBar().setTitle("Schedule");
 
         Set<Integer> switchID = new HashSet<Integer>();
-
         switchID.addAll(Arrays.asList(
                 R.id.switchMonday,
                 R.id.switchTuesday,
@@ -35,18 +34,29 @@ public class Schedule extends AppCompatActivity {
                 R.id.switchFriday,
                 R.id.switchSaturday,
                 R.id.switchSunday));
+
+        Set<Integer> textViewID = new HashSet<Integer>();
+        textViewID.addAll(Arrays.asList(
+                R.id.textViewMonday,
+                R.id.textViewTuesday,
+                R.id.textViewWednesday,
+                R.id.textViewTuesday,
+                R.id.textViewFriday,
+                R.id.textViewSaturday,
+                R.id.textViewSunday));
+
         //---------------------------------------------------------------------
 
         SharedPreferences sharedPrefMon = getSharedPreferences( "dateStates", MODE_PRIVATE);
         String days[] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
 
+        Iterator<Integer> itViewText = textViewID.iterator();
         Iterator<Integer> it = switchID.iterator();
         for(int i = 0; i < 7; i++)
         {
+            //---------------------------------------------------------------------
             SwitchCompat sView = findViewById(it.next());
-
             sView.setChecked(sharedPrefMon.getBoolean("dateState" + days[i], false));
-
             int finalI = i;
             sView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -66,8 +76,11 @@ public class Schedule extends AppCompatActivity {
                         sView.setChecked(false);
                     }
                 }
-                //---------------------------------------------------------------------
             });
+            //---------------------------------------------------------------------
+
+            SwitchCompat sText = findViewById(itViewText.next());
+
         }
 
 
