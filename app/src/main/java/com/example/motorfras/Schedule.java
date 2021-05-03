@@ -98,7 +98,7 @@ public class Schedule extends AppCompatActivity implements TimePickerDialog.OnTi
             //---------------------------------------------------------------------
             //TextView Event Listener
             TextView tView = findViewById(itViewText.next());
-            tView.setText(timeContentPref.getString("timeContent" + days[i], "00:00"));
+            tView.setText(timeContentPref.getString("timeContent" + days[i], "--:--"));
             tView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
