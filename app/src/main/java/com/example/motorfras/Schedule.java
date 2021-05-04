@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.DialogFragment;
 
+import android.app.AlertDialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -12,9 +14,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -28,48 +33,46 @@ import static java.lang.Integer.parseInt;
 
 
 public class Schedule extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener{
-    android.widget.TextView timer1;
-    int tHour, tMinute;
-    SharedPreferences sp;
-    String timestr;
     int timePickerButtonID = -1;
+
+    Button resetScheduleButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule);
 
+        resetScheduleButton = findViewById(R.id.buttonReset);
+
         setSupportActionBar(findViewById(R.id.mainToolbar));
         getSupportActionBar().setTitle("Schedule");
 
         Set<Integer> switchID = new HashSet<Integer>();
         switchID.addAll(Arrays.asList(
-                R.id.switchMonday,
-                R.id.switchTuesday,
-                R.id.switchWednesday,
-                R.id.switchThursday,
-                R.id.switchFriday,
-                R.id.switchSaturday,
-                R.id.switchSunday));
+                R.id.switch0,
+                R.id.switch1,
+                R.id.switch2,
+                R.id.switch3,
+                R.id.switch4,
+                R.id.switch5,
+                R.id.switch6));
 
         Set<Integer> textViewID = new HashSet<Integer>();
         textViewID.addAll(Arrays.asList(
-                R.id.timeMonday,
-                R.id.timeTuesday,
-                R.id.timeWednesday,
-                R.id.timeThursday,
-                R.id.timeFriday,
-                R.id.timeSaturday,
-                R.id.timeSunday));
+                R.id.time0,
+                R.id.time1,
+                R.id.time2,
+                R.id.time3,
+                R.id.time4,
+                R.id.time5,
+                R.id.time6));
 
         //---------------------------------------------------------------------
 
         SharedPreferences dateStatePref = getSharedPreferences( "dateStates"
                 ,MODE_PRIVATE);
-        SharedPreferences timeContentPref = getSharedPreferences( "dateContent"
+        SharedPreferences timeContentPref = getSharedPreferences( "timeContent"
                 ,MODE_PRIVATE);
-
-        String days[] = {"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
 
         Iterator<Integer> itViewText = textViewID.iterator();
         Iterator<Integer> itSwitch = switchID.iterator();
@@ -77,7 +80,7 @@ public class Schedule extends AppCompatActivity implements TimePickerDialog.OnTi
         {
             //---------------------------------------------------------------------
             SwitchCompat sView = findViewById(itSwitch.next());
-            sView.setChecked(dateStatePref.getBoolean("dateState" + days[i], false));
+            sView.setChecked(dateStatePref.getBoolean("dateState" + i, false));
             int finalI = i;
             //Switch Event Listener
             sView.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -86,11 +89,11 @@ public class Schedule extends AppCompatActivity implements TimePickerDialog.OnTi
                     SharedPreferences.Editor editor = getSharedPreferences("dateStates", MODE_PRIVATE).edit();
                     if (isChecked){
                         //When switch checked
-                        editor.putBoolean("dateState" + days[finalI], true);
+                        editor.putBoolean("dateState" + finalI, true);
                     }
                     else {
                         //When switch unchecked
-                        editor.putBoolean("dateState" + days[finalI], false);
+                        editor.putBoolean("dateState" + finalI, false);
                     }
                     editor.apply();
                 }
@@ -98,7 +101,7 @@ public class Schedule extends AppCompatActivity implements TimePickerDialog.OnTi
             //---------------------------------------------------------------------
             //TextView Event Listener
             TextView tView = findViewById(itViewText.next());
-            tView.setText(timeContentPref.getString("timeContent" + days[i], "--:--"));
+            tView.setText(timeContentPref.getString("timeContent" + i, "--:--"));
             tView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -110,20 +113,107 @@ public class Schedule extends AppCompatActivity implements TimePickerDialog.OnTi
             });
         }
 
+        resetScheduleButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                builder.setMessage("Are you sure you wish to clear the schedule?").setPositiveButton("Yes",
+                        dialogClickListener).setNegativeButton("No", dialogClickListener).show();
+            }
+        });
 
     }
 
     //------------- MENU OPTIONS -------------
 
 
+    private void resetSchedule(){
+        SharedPreferences.Editor prefEditor = getSharedPreferences( "dateStates", MODE_PRIVATE).edit();
+        prefEditor.clear();
+        prefEditor.apply();
+        prefEditor = getSharedPreferences( "timeContent", MODE_PRIVATE).edit();
+        prefEditor.clear();
+        prefEditor.apply();
+
+        CompoundButton bView = findViewById(R.id.switch0);
+        bView.setChecked(false);
+        bView = findViewById(R.id.switch1);
+        bView.setChecked(false);
+        bView = findViewById(R.id.switch2);
+        bView.setChecked(false);
+        bView = findViewById(R.id.switch3);
+        bView.setChecked(false);
+        bView = findViewById(R.id.switch4);
+        bView.setChecked(false);
+        bView = findViewById(R.id.switch5);
+        bView.setChecked(false);
+        bView = findViewById(R.id.switch6);
+        bView.setChecked(false);
+
+        TextView tView = findViewById(R.id.time0);
+        tView.setText(R.string.defaultTime);
+        tView = findViewById(R.id.time1);
+        tView.setText(R.string.defaultTime);
+        tView = findViewById(R.id.time2);
+        tView.setText(R.string.defaultTime);
+        tView = findViewById(R.id.time3);
+        tView.setText(R.string.defaultTime);
+        tView = findViewById(R.id.time4);
+        tView.setText(R.string.defaultTime);
+        tView = findViewById(R.id.time5);
+        tView.setText(R.string.defaultTime);
+        tView = findViewById(R.id.time6);
+        tView.setText(R.string.defaultTime);
+    }
+
+    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            switch(which)
+            {
+                case DialogInterface.BUTTON_POSITIVE:
+                {
+                    resetSchedule();
+                    break;
+                }
+                case DialogInterface.BUTTON_NEGATIVE:
+                {
+                    //No clicked
+                    break;
+                }
+            }
+        }
+    };
+
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
         TextView textView = findViewById(timePickerButtonID);
+
         String timeString = String.format(hourOfDay + ":" + minute);
+
+        if(android.text.format.DateFormat.is24HourFormat(Schedule.this))
+        {
+            timeString = "";
+            if(hourOfDay < 10)
+            {
+                timeString += "0";
+            }
+            timeString += String.format(hourOfDay + ":");
+            if(minute < 10)
+            {
+                timeString += "0";
+            }
+            timeString += String.format("" + minute);
+        }
         textView.setText(timeString);
 
+        //The ID of the view as it appears in a layout XML file.
+        //The final byte represents the day in question (Mon-Sun --- 0-6)
+        String idAsResourceString = view.getResources().getResourceName(timePickerButtonID);
+        int day = parseInt(String.format("" + idAsResourceString.charAt(idAsResourceString.length()-1)));
+
         SharedPreferences.Editor editor = getSharedPreferences("timeContent", MODE_PRIVATE).edit();
-        editor.putString("timeContent", timeString);
+        editor.putString("timeContent" + day, timeString);
         editor.apply();
 
         //Reset the pressed button
