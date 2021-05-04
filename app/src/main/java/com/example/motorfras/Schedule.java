@@ -102,6 +102,7 @@ public class Schedule extends AppCompatActivity implements TimePickerDialog.OnTi
             tView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    //Save the view's ID so we know what was pressed. Used in onTimeSet() so we know where to place the text
                     timePickerButtonID = v.getId();
                     DialogFragment timePicker = new TimePickerFragment();
                     timePicker.show(getSupportFragmentManager(), "Time Picker");
@@ -120,6 +121,7 @@ public class Schedule extends AppCompatActivity implements TimePickerDialog.OnTi
         TextView textView = findViewById(timePickerButtonID);
         String timeString = String.format(hourOfDay + ":" + minute);
         textView.setText(timeString);
+
         SharedPreferences.Editor editor = getSharedPreferences("timeContent", MODE_PRIVATE).edit();
         editor.putString("timeContent", timeString);
         editor.apply();

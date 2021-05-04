@@ -4,4 +4,6 @@
     <dimen name="schedule_table_horizontal_margin">20dp</dimen>
     <dimen name="schedule_table_default_text_size">20sp</dimen>
     <dimen name="schedule_table_layout_marginBottom">16dp</dimen>
+    <dimen name="schedule_table_top_margin">20dp</dimen>
+
 </resources>

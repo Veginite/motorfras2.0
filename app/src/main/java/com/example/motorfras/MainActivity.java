@@ -19,7 +19,9 @@ import android.widget.ImageView;
 import android.widget.TimePicker;
 
 import java.nio.charset.Charset;
+import java.util.Iterator;
 import java.util.Objects;
+import java.util.Set;
 import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity{
@@ -46,6 +48,9 @@ public class MainActivity extends AppCompatActivity{
         switchCompat        = findViewById(R.id.switchOnOff);
 
 
+        /*startBTConnection(mBTDevice, INSECURE_UUID);*/
+
+
         launchSchedule.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -65,16 +70,18 @@ public class MainActivity extends AppCompatActivity{
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
                 if(isChecked)
                 {
-                    /*startBTConnection(mBTDevice, INSECURE_UUID);
 
-                    String msg = "1";
+
+                    /*String msg = "1";
                     mBluetoothConnection.write(msg.getBytes(Charset.defaultCharset()));*/
 
                     lampIv.setImageResource(R.drawable.ic_baseline_lightbulb_on);
                 }
                 else
                 {
-                   /* String msg = "1";
+
+
+                    /*String msg = "0";
                     mBluetoothConnection.write(msg.getBytes(Charset.defaultCharset()));*/
 
                     lampIv.setImageResource(R.drawable.ic_baseline_lightbulb_off);
