@@ -23,6 +23,16 @@
             android:theme="?attr/actionBarTheme" />
     </com.google.android.material.appbar.AppBarLayout>
 
+    <TextView
+        android:id="@+id/textViewInstruction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textSize="26sp"
+        android:layout_marginTop="@dimen/schedule_table_top_margin"
+        android:text="Tap the time or --:-- to set a time!">
+
+    </TextView>
 
     <TableLayout
         android:layout_width="match_parent"
@@ -43,7 +53,7 @@
                 android:id="@+id/textViewHeadline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Weekdays:"
+                android:text="Weekday:"
                 android:textColor="@color/black"
                 android:textSize="20sp"/>
 
@@ -51,7 +61,7 @@
                 android:id="@+id/settime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Departure time:"
+                android:text="Time of departure:"
                 android:textColor="@color/black"
                 android:gravity="center_horizontal"
                 android:textSize="20sp"/>
@@ -60,7 +70,7 @@
                 android:id="@+id/switchname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ON/OFF"
+                android:text="OFF/ON"
                 android:textColor="@color/black"/>
         </TableRow>
         <!--MONDAY-->
@@ -251,11 +261,27 @@
                 android:layout_height="wrap_content" />
         </TableRow>
     </TableLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/schedule_table_top_margin"
+        android:gravity="center"
+        tools:context=".Schedule"
+        >
     <Button
         android:id="@+id/buttonReset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/schedule_table_top_margin"
         android:layout_gravity="center"
         android:text="Reset Schedule"/>
+
+    <Button
+        android:id="@+id/buttonUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="40dp"
+        android:text="Upload Schedule"/>
+    </LinearLayout>
 </LinearLayout>

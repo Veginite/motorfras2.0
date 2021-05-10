@@ -54,6 +54,8 @@ public class MainActivity extends AppCompatActivity{
         startActivity(a);
     }
 
+    //[11:44,11:43]
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
