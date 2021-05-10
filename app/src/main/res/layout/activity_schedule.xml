@@ -34,6 +34,35 @@
         android:layout_marginTop="20dp"
         tools:context=".Schedule">
 
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/schedule_table_layout_marginBottom">
+
+            <TextView
+                android:id="@+id/textViewHeadline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Weekdays:"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/settime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Departure time:"
+                android:textColor="@color/black"
+                android:gravity="center_horizontal"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/switchname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ON/OFF"
+                android:textColor="@color/black"/>
+        </TableRow>
         <!--MONDAY-->
         <TableRow
             android:layout_width="match_parent"
