@@ -30,7 +30,8 @@
         android:gravity="center_horizontal"
         android:textSize="26sp"
         android:layout_marginTop="@dimen/schedule_table_top_margin"
-        android:text="Tap the time or --:-- to set a time!">
+        android:text="Tap the time or --:-- to set a time!"
+        android:textColor="@color/black">
 
     </TextView>
 

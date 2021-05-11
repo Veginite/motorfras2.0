@@ -119,6 +119,7 @@ public class MainActivity extends AppCompatActivity{
                         connectedThread.write(msg);
 
                         lampIv.setImageResource(R.drawable.ic_baseline_lightbulb_on);
+                        showToast("Your engine heater is on");
                     }
                     else
                     {
@@ -126,6 +127,7 @@ public class MainActivity extends AppCompatActivity{
                         connectedThread.write(msg);
 
                         lampIv.setImageResource(R.drawable.ic_baseline_lightbulb_off);
+                        showToast("Your engine heater is off");
                     }
                 }
                 else
