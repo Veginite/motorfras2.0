@@ -6,5 +6,4 @@
     <string name="scheduleTableHeaderWeekday"><b>Weekdays</b></string>
     <string name="scheduleTableHeaderTime"><b>Time of departure</b></string>
     <string name="scheduleTableHeaderSwitch"><b>OFF/ON</b></string>
-
 </resources>

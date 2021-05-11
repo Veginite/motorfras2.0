@@ -12,7 +12,6 @@ import android.widget.Button;
 import java.util.Objects;
 
 public class Settings extends AppCompatActivity {
-    private Button Tid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
