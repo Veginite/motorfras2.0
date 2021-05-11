@@ -54,7 +54,7 @@
                 android:id="@+id/textViewHeadline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Weekday:"
+                android:text="@string/scheduleTableHeaderWeekday"
                 android:textColor="@color/black"
                 android:textSize="20sp"/>
 
@@ -62,7 +62,7 @@
                 android:id="@+id/settime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Time of departure:"
+                android:text="@string/scheduleTableHeaderTime"
                 android:textColor="@color/black"
                 android:gravity="center_horizontal"
                 android:textSize="20sp"/>
@@ -71,8 +71,9 @@
                 android:id="@+id/switchname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="OFF/ON"
-                android:textColor="@color/black"/>
+                android:text="@string/scheduleTableHeaderSwitch"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
         </TableRow>
         <!--MONDAY-->
         <TableRow

@@ -3,4 +3,8 @@
     <string name="manualOverride">Engine Heater OFF/ON</string>
     <string name="firstPageName">Startsida</string>
     <string name="defaultTime">--:--</string>
+    <string name="scheduleTableHeaderWeekday"><b>Weekdays</b></string>
+    <string name="scheduleTableHeaderTime"><b>Time of departure</b></string>
+    <string name="scheduleTableHeaderSwitch"><b>OFF/ON</b></string>
+
 </resources>
