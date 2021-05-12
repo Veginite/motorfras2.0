@@ -42,23 +42,23 @@ public class ScheduleAfterNoon extends AppCompatActivity implements TimePickerDi
 
         Set<Integer> switchID = new HashSet<Integer>();
         switchID.addAll(Arrays.asList(
-                R.id.switch01,
-                R.id.switch11,
-                R.id.switch21,
-                R.id.switch31,
-                R.id.switch41,
-                R.id.switch51,
-                R.id.switch61));
+                R.id.switch0,
+                R.id.switch1,
+                R.id.switch2,
+                R.id.switch3,
+                R.id.switch4,
+                R.id.switch5,
+                R.id.switch6));
 
         Set<Integer> textViewID = new HashSet<Integer>();
         textViewID.addAll(Arrays.asList(
-                R.id.time01,
-                R.id.time11,
-                R.id.time21,
-                R.id.time31,
-                R.id.time41,
-                R.id.time51,
-                R.id.time61));
+                R.id.time0,
+                R.id.time1,
+                R.id.time2,
+                R.id.time3,
+                R.id.time4,
+                R.id.time5,
+                R.id.time6));
 
         //---------------------------------------------------------------------
 
@@ -128,34 +128,34 @@ public class ScheduleAfterNoon extends AppCompatActivity implements TimePickerDi
         prefEditor.clear();
         prefEditor.apply();
 
-        CompoundButton bView = findViewById(R.id.switch01);
+        CompoundButton bView = findViewById(R.id.switch0);
         bView.setChecked(false);
-        bView = findViewById(R.id.switch11);
+        bView = findViewById(R.id.switch1);
         bView.setChecked(false);
-        bView = findViewById(R.id.switch21);
+        bView = findViewById(R.id.switch2);
         bView.setChecked(false);
-        bView = findViewById(R.id.switch31);
+        bView = findViewById(R.id.switch3);
         bView.setChecked(false);
-        bView = findViewById(R.id.switch41);
+        bView = findViewById(R.id.switch4);
         bView.setChecked(false);
-        bView = findViewById(R.id.switch51);
+        bView = findViewById(R.id.switch5);
         bView.setChecked(false);
-        bView = findViewById(R.id.switch61);
+        bView = findViewById(R.id.switch6);
         bView.setChecked(false);
 
-        TextView tView = findViewById(R.id.time01);
+        TextView tView = findViewById(R.id.time0);
         tView.setText(R.string.defaultTime);
-        tView = findViewById(R.id.time11);
+        tView = findViewById(R.id.time1);
         tView.setText(R.string.defaultTime);
-        tView = findViewById(R.id.time21);
+        tView = findViewById(R.id.time2);
         tView.setText(R.string.defaultTime);
-        tView = findViewById(R.id.time31);
+        tView = findViewById(R.id.time3);
         tView.setText(R.string.defaultTime);
-        tView = findViewById(R.id.time41);
+        tView = findViewById(R.id.time4);
         tView.setText(R.string.defaultTime);
-        tView = findViewById(R.id.time51);
+        tView = findViewById(R.id.time5);
         tView.setText(R.string.defaultTime);
-        tView = findViewById(R.id.time61);
+        tView = findViewById(R.id.time6);
         tView.setText(R.string.defaultTime);
     }
 

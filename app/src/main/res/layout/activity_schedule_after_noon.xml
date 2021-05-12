@@ -24,7 +24,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <TextView
-        android:id="@+id/textViewInstruction1"
+        android:id="@+id/textViewInstruction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -51,7 +51,7 @@
             android:layout_marginBottom="@dimen/schedule_table_layout_marginBottom">
 
             <TextView
-                android:id="@+id/textViewHeadline1"
+                android:id="@+id/textViewHeadline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/scheduleTableHeaderWeekday"
@@ -59,7 +59,7 @@
                 android:textSize="20sp"/>
 
             <TextView
-                android:id="@+id/settime1"
+                android:id="@+id/settime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/scheduleTableHeaderTime"
@@ -68,7 +68,7 @@
                 android:textSize="20sp"/>
 
             <TextView
-                android:id="@+id/switchname1"
+                android:id="@+id/switchname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/scheduleTableHeaderSwitch"
@@ -82,14 +82,14 @@
             android:layout_marginBottom="@dimen/schedule_table_layout_marginBottom">
 
             <TextView
-                android:id="@+id/textView01"
+                android:id="@+id/textView0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Monday"
                 android:textSize="20sp"/>
 
             <TextView
-                android:id="@+id/time01"
+                android:id="@+id/time0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/defaultTime"
@@ -97,7 +97,7 @@
                 android:textSize="20sp"/>
 
             <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/switch01"
+                android:id="@+id/switch0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </TableRow>
@@ -109,14 +109,14 @@
             android:layout_marginBottom="@dimen/schedule_table_layout_marginBottom">
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tuesday"
                 android:textSize="20sp"/>
 
             <TextView
-                android:id="@+id/time11"
+                android:id="@+id/time1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/defaultTime"
@@ -124,7 +124,7 @@
                 android:textSize="20sp"/>
 
             <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/switch11"
+                android:id="@+id/switch1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </TableRow>
@@ -136,14 +136,14 @@
             android:layout_marginBottom="@dimen/schedule_table_layout_marginBottom">
 
             <TextView
-                android:id="@+id/textView21"
+                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Wednesday"
                 android:textSize="20sp"/>
 
             <TextView
-                android:id="@+id/time21"
+                android:id="@+id/time2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/defaultTime"
@@ -151,7 +151,7 @@
                 android:textSize="20sp"/>
 
             <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/switch21"
+                android:id="@+id/switch2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </TableRow>
@@ -163,14 +163,14 @@
             android:layout_marginBottom="@dimen/schedule_table_layout_marginBottom">
 
             <TextView
-                android:id="@+id/textView31"
+                android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Wednesday"
                 android:textSize="20sp"/>
 
             <TextView
-                android:id="@+id/time31"
+                android:id="@+id/time3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/defaultTime"
@@ -178,7 +178,7 @@
                 android:textSize="20sp"/>
 
             <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/switch31"
+                android:id="@+id/switch3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </TableRow>
@@ -190,14 +190,14 @@
             android:layout_marginBottom="@dimen/schedule_table_layout_marginBottom">
 
             <TextView
-                android:id="@+id/textView41"
+                android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Friday"
                 android:textSize="20sp"/>
 
             <TextView
-                android:id="@+id/time41"
+                android:id="@+id/time4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/defaultTime"
@@ -205,7 +205,7 @@
                 android:textSize="20sp"/>
 
             <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/switch41"
+                android:id="@+id/switch4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </TableRow>
@@ -217,14 +217,14 @@
             android:layout_marginBottom="@dimen/schedule_table_layout_marginBottom">
 
             <TextView
-                android:id="@+id/textView51"
+                android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Saturday"
                 android:textSize="20sp"/>
 
             <TextView
-                android:id="@+id/time51"
+                android:id="@+id/time5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/defaultTime"
@@ -232,7 +232,7 @@
                 android:textSize="20sp"/>
 
             <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/switch51"
+                android:id="@+id/switch5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </TableRow>
@@ -243,14 +243,14 @@
             android:gravity="center_vertical">
 
             <TextView
-                android:id="@+id/textView61"
+                android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sunday"
                 android:textSize="20sp"/>
 
             <TextView
-                android:id="@+id/time61"
+                android:id="@+id/time6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/defaultTime"
@@ -258,7 +258,7 @@
                 android:textSize="20sp"/>
 
             <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/switch61"
+                android:id="@+id/switch6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </TableRow>
@@ -272,14 +272,14 @@
         tools:context=".ScheduleAfterNoon"
         >
         <Button
-            android:id="@+id/buttonReset1"
+            android:id="@+id/buttonReset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Reset Schedule"/>
 
         <Button
-            android:id="@+id/buttonUpload1"
+            android:id="@+id/buttonUpload"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
