@@ -23,6 +23,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Schedule" />
+        <activity android:name=".ScheduleMorning" />
+        <activity android:name=".ScheduleAfterNoon" />
         <activity android:name=".Settings" />
     </application>
 
