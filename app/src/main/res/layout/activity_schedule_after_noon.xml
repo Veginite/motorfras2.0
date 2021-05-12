@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ScheduleAfterNoon">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/mainToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:id="@+id/textViewInstruction1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textSize="26sp"
+        android:layout_marginTop="@dimen/schedule_table_top_margin"
+        android:text="Tap the time or --:-- to set a time!"
+        android:textColor="@color/black">
+
+    </TextView>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1"
+        android:shrinkColumns="1"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        tools:context=".Schedule">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/schedule_table_layout_marginBottom">
+
+            <TextView
+                android:id="@+id/textViewHeadline1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/scheduleTableHeaderWeekday"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/settime1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/scheduleTableHeaderTime"
+                android:textColor="@color/black"
+                android:gravity="center_horizontal"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/switchname1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/scheduleTableHeaderSwitch"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
+        </TableRow>
+        <!--MONDAY-->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/schedule_table_layout_marginBottom">
+
+            <TextView
+                android:id="@+id/textView01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Monday"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/time01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/defaultTime"
+                android:gravity="center_horizontal"
+                android:textSize="20sp"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </TableRow>
+        <!--TUESDAY-->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="@dimen/schedule_table_layout_marginBottom">
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tuesday"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/time11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/defaultTime"
+                android:gravity="center_horizontal"
+                android:textSize="20sp"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </TableRow>
+        <!--WEDNESDAY-->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="@dimen/schedule_table_layout_marginBottom">
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wednesday"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/time21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/defaultTime"
+                android:gravity="center_horizontal"
+                android:textSize="20sp"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </TableRow>
+        <!--THURSDAY-->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="@dimen/schedule_table_layout_marginBottom">
+
+            <TextView
+                android:id="@+id/textView31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wednesday"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/time31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/defaultTime"
+                android:gravity="center_horizontal"
+                android:textSize="20sp"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </TableRow>
+        <!--FRIDAY-->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="@dimen/schedule_table_layout_marginBottom">
+
+            <TextView
+                android:id="@+id/textView41"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Friday"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/time41"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/defaultTime"
+                android:gravity="center_horizontal"
+                android:textSize="20sp"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch41"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </TableRow>
+        <!--SATURDAY-->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="@dimen/schedule_table_layout_marginBottom">
+
+            <TextView
+                android:id="@+id/textView51"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Saturday"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/time51"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/defaultTime"
+                android:gravity="center_horizontal"
+                android:textSize="20sp"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch51"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </TableRow>
+        <!--SUNDAY-->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/textView61"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sunday"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/time61"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/defaultTime"
+                android:gravity="center_horizontal"
+                android:textSize="20sp"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch61"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </TableRow>
+    </TableLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/schedule_table_top_margin"
+        android:gravity="center"
+        tools:context=".ScheduleAfterNoon"
+        >
+        <Button
+            android:id="@+id/buttonReset1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Reset Schedule"/>
+
+        <Button
+            android:id="@+id/buttonUpload1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="40dp"
+            android:text="Upload Schedule"/>
+    </LinearLayout>
+</LinearLayout>
