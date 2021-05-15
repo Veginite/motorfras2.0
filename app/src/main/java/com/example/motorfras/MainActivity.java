@@ -96,6 +96,11 @@ public class MainActivity extends AppCompatActivity{
         launchSchedule.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                // Terminate Bluetooth Connection and close app
+                if (createConnectThread != null)
+                {
+                    createConnectThread.cancel();
+                }
                 launchSchedule();
             }
         });
@@ -103,6 +108,11 @@ public class MainActivity extends AppCompatActivity{
         launchSettings.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                // Terminate Bluetooth Connection and close app
+                if (createConnectThread != null)
+                {
+                    createConnectThread.cancel();
+                }
                 launchSettings();
             }
         });
@@ -117,6 +127,7 @@ public class MainActivity extends AppCompatActivity{
                     {
                         String msg = "BT_LED_ENABLE";
                         connectedThread.write(msg);
+
 
                         lampIv.setImageResource(R.drawable.ic_baseline_lightbulb_on);
                         showToast("Your engine heater is on");

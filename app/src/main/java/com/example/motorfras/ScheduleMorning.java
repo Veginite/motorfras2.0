@@ -37,7 +37,7 @@ import static java.lang.Integer.parseInt;
 public class ScheduleMorning extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener{
     int timePickerButtonID = -1;
 
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "ScheduleMorning";
     BluetoothDevice mBTDevice;
 
     public static BluetoothSocket mmSocket;
@@ -63,9 +63,6 @@ public class ScheduleMorning extends AppCompatActivity implements TimePickerDial
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule_morning);
@@ -154,6 +151,9 @@ public class ScheduleMorning extends AppCompatActivity implements TimePickerDial
         uploadScheduleButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+
+                BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+                Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
                 //FUTURE WORK: CACHE THE HARDWARE ADDRESS WHICH IS ACQUIRED
                 //FROM A LIST THAT THE USER CAN SELECT WHAT DEVICE TO USE
                 for(BluetoothDevice device : pairedDevices)
