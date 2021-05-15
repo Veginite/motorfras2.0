@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity{
     ImageView lampIv;
     Button launchSchedule, launchSettings;
     SwitchCompat switchCompat;
+    public static TextView tempSens;
 
     private static final String TAG = "MainActivity";
     BluetoothDevice mBTDevice;
@@ -68,6 +70,7 @@ public class MainActivity extends AppCompatActivity{
         launchSchedule      = findViewById(R.id.schedule);
         launchSettings      = findViewById(R.id.Settings);
         switchCompat        = findViewById(R.id.switchOnOff);
+        tempSens            = findViewById(R.id.tempSensTv);
 
         BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
@@ -324,7 +327,8 @@ public class MainActivity extends AppCompatActivity{
                     String readMessage;
                     if (buffer[bytes] == '\n'){
                         readMessage = new String(buffer,0,bytes);
-                        Log.e("Arduino Message",readMessage);
+                        //Log.e("Arduino Message",readMessage);
+                        tempSens.setText(buffer.toString());
                         //handler.obtainMessage(MESSAGE_READ,readMessage).sendToTarget();
                         bytes = 0;
                     } else {

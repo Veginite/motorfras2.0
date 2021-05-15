@@ -167,7 +167,7 @@ public class ScheduleAfterNoon extends AppCompatActivity implements TimePickerDi
             @Override
             public void onClick(View view) {
                 if (mmSocket.isConnected()) {
-                    String msg = "SCH_DAY~";
+                    String msg = "SCH_NIGHT~";
 
                     Set<Integer> textViewID = new HashSet<Integer>();
                     textViewID.addAll(Arrays.asList(
