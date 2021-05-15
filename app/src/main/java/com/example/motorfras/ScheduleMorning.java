@@ -58,6 +58,7 @@ public class ScheduleMorning extends AppCompatActivity implements TimePickerDial
         {
             createConnectThread.cancel();
         }
+        finish();
     }
 
     @Override
