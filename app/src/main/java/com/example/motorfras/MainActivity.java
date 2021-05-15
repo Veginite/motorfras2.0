@@ -125,20 +125,25 @@ public class MainActivity extends AppCompatActivity{
                 {
                     if(isChecked)
                     {
-                        String msg = "BT_LED_ENABLE";
-                        connectedThread.write(msg);
+                        if(mmSocket.isConnected())
+                        {
+                            String msg = "BT_LED_ENABLE";
+                            connectedThread.write(msg);
 
-
-                        lampIv.setImageResource(R.drawable.ic_baseline_lightbulb_on);
-                        showToast("Your engine heater is on");
+                            lampIv.setImageResource(R.drawable.ic_baseline_lightbulb_on);
+                            showToast("Your engine heater is on");
+                        }
                     }
                     else
                     {
-                        String msg = "BT_LED_DISABLE";
-                        connectedThread.write(msg);
+                        if(mmSocket.isConnected())
+                        {
+                            String msg = "BT_LED_DISABLE";
+                            connectedThread.write(msg);
 
-                        lampIv.setImageResource(R.drawable.ic_baseline_lightbulb_off);
-                        showToast("Your engine heater is off");
+                            lampIv.setImageResource(R.drawable.ic_baseline_lightbulb_off);
+                            showToast("Your engine heater is off");
+                        }
                     }
                 }
                 else
