@@ -12,7 +12,7 @@ import android.widget.Button;
 import java.util.Objects;
 
 public class Settings extends AppCompatActivity {
-
+    private Button buttonDevice;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +20,18 @@ public class Settings extends AppCompatActivity {
 
         setSupportActionBar(findViewById(R.id.mainToolbar));
         getSupportActionBar().setTitle("Settings");
+
+        buttonDevice = (Button) findViewById(R.id.buttonDevices);
+        buttonDevice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDevices();
+            }
+        });
+    }
+    public void openDevices() {
+        Intent intent = new Intent(this, SelectBluetoothDevices.class);
+        startActivity(intent);
     }
 
     //------------- MENU OPTIONS -------------
