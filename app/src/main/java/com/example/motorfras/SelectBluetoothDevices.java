@@ -33,7 +33,7 @@ public class SelectBluetoothDevices extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_bluetooth_devices);
 
-        /*// Bluetooth Setup
+        // Bluetooth Setup
         BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
         // Get List of Paired Bluetooth Device
@@ -61,7 +61,7 @@ public class SelectBluetoothDevices extends AppCompatActivity {
                 public void onClick(View view) { }
             });
             snackbar.show();
-        }*/
+        }
     }
 
 
