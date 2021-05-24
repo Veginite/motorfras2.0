@@ -189,7 +189,8 @@ public class ScheduleAfterNoon extends AppCompatActivity implements TimePickerDi
                     Iterator<Integer> itViewText = textViewID.iterator();
                     Iterator<Integer> itSwitch = switchID.iterator();
 
-                    for (short i = 0; i < 7; i++) {
+                    for (short i = 0; i < 7; i++)
+                    {
                         TextView tView = findViewById(itViewText.next());
                         SwitchCompat sView = findViewById(itSwitch.next());
 

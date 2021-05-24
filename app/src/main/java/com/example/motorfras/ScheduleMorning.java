@@ -175,6 +175,15 @@ public class ScheduleMorning extends AppCompatActivity implements TimePickerDial
                 {
                     String msg = "SCH_DAY-";
 
+                    List<Integer> switchID = Arrays.asList(
+                            R.id.switch0,
+                            R.id.switch1,
+                            R.id.switch2,
+                            R.id.switch3,
+                            R.id.switch4,
+                            R.id.switch5,
+                            R.id.switch6);
+
                     List<Integer> textViewID = Arrays.asList(
                             R.id.time0,
                             R.id.time1,
@@ -185,13 +194,25 @@ public class ScheduleMorning extends AppCompatActivity implements TimePickerDial
                             R.id.time6);
 
                     Iterator<Integer> itViewText = textViewID.iterator();
-                    for(short i = 0; i < 7; i++)
+                    Iterator<Integer> itSwitch = switchID.iterator();
+
+                    for (short i = 0; i < 7; i++)
                     {
                         TextView tView = findViewById(itViewText.next());
-                        msg += tView.getText();
+                        SwitchCompat sView = findViewById(itSwitch.next());
 
-                        if(i < 6)
+                        Log.e("Status", "i: " + i + "textView: " + tView.getText());
+
+                        if(sView.isChecked())
                         {
+                            msg += tView.getText();
+                        }
+                        else
+                        {
+                            msg += "ndef";
+                        }
+
+                        if (i < 6) {
                             msg += ",";
                         }
                     }
@@ -425,7 +446,20 @@ public class ScheduleMorning extends AppCompatActivity implements TimePickerDial
                     String readMessage;
                     if (buffer[bytes] == '\n'){
                         readMessage = new String(buffer,0,bytes);
-                        Log.e("Arduino Message",readMessage);
+                        /*int n = parseInt(readMessage);
+
+
+                        if()
+                        {
+
+                        }
+                        else
+                        {
+
+                        }
+                        n = n * (9/5) + 32;*/
+
+                        Log.e("Arduino Message", readMessage);
                         //handler.obtainMessage(MESSAGE_READ,readMessage).sendToTarget();
                         bytes = 0;
                     } else {
