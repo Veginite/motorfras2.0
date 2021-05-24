@@ -29,6 +29,7 @@ import java.io.OutputStream;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -94,25 +95,23 @@ public class ScheduleMorning extends AppCompatActivity implements TimePickerDial
             mBTDevice = null;
         }
 
-        Set<Integer> switchID = new HashSet<Integer>();
-        switchID.addAll(Arrays.asList(
+        List<Integer> switchID = Arrays.asList(
                 R.id.switch0,
                 R.id.switch1,
                 R.id.switch2,
                 R.id.switch3,
                 R.id.switch4,
                 R.id.switch5,
-                R.id.switch6));
+                R.id.switch6);
 
-        Set<Integer> textViewID = new HashSet<Integer>();
-        textViewID.addAll(Arrays.asList(
+        List<Integer> textViewID = Arrays.asList(
                 R.id.time0,
                 R.id.time1,
                 R.id.time2,
                 R.id.time3,
                 R.id.time4,
                 R.id.time5,
-                R.id.time6));
+                R.id.time6);
 
         //---------------------------------------------------------------------
 
@@ -174,17 +173,16 @@ public class ScheduleMorning extends AppCompatActivity implements TimePickerDial
             public void onClick(View view){
                 if(mmSocket.isConnected())
                 {
-                    String msg = "SCH_DAY~";
+                    String msg = "SCH_DAY-";
 
-                    Set<Integer> textViewID = new HashSet<Integer>();
-                    textViewID.addAll(Arrays.asList(
+                    List<Integer> textViewID = Arrays.asList(
                             R.id.time0,
                             R.id.time1,
                             R.id.time2,
                             R.id.time3,
                             R.id.time4,
                             R.id.time5,
-                            R.id.time6));
+                            R.id.time6);
 
                     Iterator<Integer> itViewText = textViewID.iterator();
                     for(short i = 0; i < 7; i++)
