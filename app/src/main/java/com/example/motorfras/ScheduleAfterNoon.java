@@ -29,6 +29,7 @@ import java.io.OutputStream;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -90,25 +91,23 @@ public class ScheduleAfterNoon extends AppCompatActivity implements TimePickerDi
             mBTDevice = null;
         }
 
-        Set<Integer> switchID = new HashSet<Integer>();
-        switchID.addAll(Arrays.asList(
+        List<Integer> switchID = Arrays.asList(
                 R.id.switch0,
                 R.id.switch1,
                 R.id.switch2,
                 R.id.switch3,
                 R.id.switch4,
                 R.id.switch5,
-                R.id.switch6));
+                R.id.switch6);
 
-        Set<Integer> textViewID = new HashSet<Integer>();
-        textViewID.addAll(Arrays.asList(
+        List<Integer> textViewID = Arrays.asList(
                 R.id.time0,
                 R.id.time1,
                 R.id.time2,
                 R.id.time3,
                 R.id.time4,
                 R.id.time5,
-                R.id.time6));
+                R.id.time6);
 
         //---------------------------------------------------------------------
 
@@ -167,22 +166,43 @@ public class ScheduleAfterNoon extends AppCompatActivity implements TimePickerDi
             @Override
             public void onClick(View view) {
                 if (mmSocket.isConnected()) {
-                    String msg = "SCH_NIGHT~";
+                    String msg = "SCH_NIGHT-";
 
-                    Set<Integer> textViewID = new HashSet<Integer>();
-                    textViewID.addAll(Arrays.asList(
+                    List<Integer> switchID = Arrays.asList(
+                            R.id.switch0,
+                            R.id.switch1,
+                            R.id.switch2,
+                            R.id.switch3,
+                            R.id.switch4,
+                            R.id.switch5,
+                            R.id.switch6);
+
+                    List<Integer> textViewID = Arrays.asList(
                             R.id.time0,
                             R.id.time1,
                             R.id.time2,
                             R.id.time3,
                             R.id.time4,
                             R.id.time5,
-                            R.id.time6));
+                            R.id.time6);
 
                     Iterator<Integer> itViewText = textViewID.iterator();
+                    Iterator<Integer> itSwitch = switchID.iterator();
+
                     for (short i = 0; i < 7; i++) {
                         TextView tView = findViewById(itViewText.next());
-                        msg += tView.getText();
+                        SwitchCompat sView = findViewById(itSwitch.next());
+
+                        Log.e("Status", "i: " + i + "textView: " + tView.getText());
+
+                        if(sView.isChecked())
+                        {
+                            msg += tView.getText();
+                        }
+                        else
+                        {
+                            msg += "ndef";
+                        }
 
                         if (i < 6) {
                             msg += ",";
