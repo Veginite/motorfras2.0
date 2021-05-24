@@ -32,17 +32,21 @@
         >
         <Button
             android:id="@+id/scheduleMorning"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="16dp"
             android:layout_gravity="center"
+            android:textSize="30sp"
             android:text="Morning schedule"/>
 
         <Button
             android:id="@+id/scheduleAfterNoon"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="16dp"
             android:layout_gravity="center"
             android:layout_marginTop="8sp"
+            android:textSize="30sp"
             android:text="Afternoon schedule"/>
     </LinearLayout>
 </LinearLayout>
