@@ -6,7 +6,6 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,7 +26,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -39,7 +37,7 @@ public class ScheduleAfterNoon extends AppCompatActivity implements TimePickerDi
     int timePickerButtonID = -1;
 
     private static final String TAG = "ScheduleAfterNoon";
-    BluetoothDevice mBTDevice;
+    BluetoothDevice mBTDevice = null;
 
     public static BluetoothSocket mmSocket;
     public static ConnectedThread connectedThread;
@@ -52,11 +50,11 @@ public class ScheduleAfterNoon extends AppCompatActivity implements TimePickerDi
     Button uploadScheduleButton;
     Button Back;
 
-    //When the app is closed
     @Override
     public void onBackPressed() {
         // Terminate Bluetooth Connection and close app
-        if (createConnectThread != null) {
+        if (createConnectThread != null)
+        {
             createConnectThread.cancel();
         }
         finish();
@@ -76,19 +74,28 @@ public class ScheduleAfterNoon extends AppCompatActivity implements TimePickerDi
 
         BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
-        //FUTURE WORK: CACHE THE HARDWARE ADDRESS WHICH IS ACQUIRED
-        //FROM A LIST THAT THE USER CAN SELECT WHAT DEVICE TO USE
-        for (BluetoothDevice device : pairedDevices) {
+
+        SharedPreferences hardwareAddressPref = getSharedPreferences("hardwareAddress", MODE_PRIVATE);
+        String hwAddress = hardwareAddressPref.getString("hardwareAddress", "");
+
+        for(BluetoothDevice device : pairedDevices)
+        {
             Log.d(TAG, device.getName());
-            mBTDevice = device;
+            Log.d("--hwAddress--", hwAddress);
+            if(hwAddress.equals(device.getAddress()))
+            {
+                mBTDevice = device;
+            }
         }
 
-        if (pairedDevices.size() > 0) {
+        if(mBTDevice != null)
+        {
             createConnectThread = new CreateConnectThread(mBluetoothAdapter, mBTDevice.getAddress());
             createConnectThread.start();
-        } else {
+        }
+        else
+        {
             showToast("No Paired Devices");
-            mBTDevice = null;
         }
 
         List<Integer> switchID = Arrays.asList(
@@ -165,7 +172,8 @@ public class ScheduleAfterNoon extends AppCompatActivity implements TimePickerDi
         uploadScheduleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mmSocket.isConnected()) {
+                if (mBTDevice != null)
+                {
                     String msg = "SCH_NIGHT-";
 
                     List<Integer> switchID = Arrays.asList(
@@ -211,6 +219,10 @@ public class ScheduleAfterNoon extends AppCompatActivity implements TimePickerDi
                     }
 
                     connectedThread.write(msg);
+                }
+                else
+                {
+                    showToast("No Paired Devices");
                 }
             }
         });
@@ -424,14 +436,12 @@ public class ScheduleAfterNoon extends AppCompatActivity implements TimePickerDi
                 try {
                     /*
                     Read from the InputStream from Arduino until termination character is reached.
-                    Then send the whole String message to GUI Handler.
                      */
                     buffer[bytes] = (byte) mmInStream.read();
                     String readMessage;
                     if (buffer[bytes] == '\n') {
                         readMessage = new String(buffer, 0, bytes);
                         Log.e("Arduino Message", readMessage);
-                        //handler.obtainMessage(MESSAGE_READ,readMessage).sendToTarget();
                         bytes = 0;
                     } else {
                         bytes++;

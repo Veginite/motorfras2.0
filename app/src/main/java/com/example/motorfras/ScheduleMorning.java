@@ -6,7 +6,6 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,7 +26,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -39,7 +37,7 @@ public class ScheduleMorning extends AppCompatActivity implements TimePickerDial
     int timePickerButtonID = -1;
 
     private static final String TAG = "ScheduleMorning";
-    BluetoothDevice mBTDevice;
+    BluetoothDevice mBTDevice = null;
 
     public static BluetoothSocket mmSocket;
     public static ConnectedThread connectedThread;
@@ -51,7 +49,6 @@ public class ScheduleMorning extends AppCompatActivity implements TimePickerDial
     Button resetScheduleButton;
     Button uploadScheduleButton;
 
-    //When the app is closed
     @Override
     public void onBackPressed() {
         // Terminate Bluetooth Connection and close app
@@ -76,15 +73,21 @@ public class ScheduleMorning extends AppCompatActivity implements TimePickerDial
 
         BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
-        //FUTURE WORK: CACHE THE HARDWARE ADDRESS WHICH IS ACQUIRED
-        //FROM A LIST THAT THE USER CAN SELECT WHAT DEVICE TO USE
+
+        SharedPreferences hardwareAddressPref = getSharedPreferences("hardwareAddress", MODE_PRIVATE);
+        String hwAddress = hardwareAddressPref.getString("hardwareAddress", "");
+
         for(BluetoothDevice device : pairedDevices)
         {
             Log.d(TAG, device.getName());
-            mBTDevice = device;
+            Log.d("--hwAddress--", hwAddress);
+            if(hwAddress.equals(device.getAddress()))
+            {
+                mBTDevice = device;
+            }
         }
 
-        if(pairedDevices.size() > 0)
+        if(mBTDevice != null)
         {
             createConnectThread = new CreateConnectThread(mBluetoothAdapter, mBTDevice.getAddress());
             createConnectThread.start();
@@ -92,7 +95,6 @@ public class ScheduleMorning extends AppCompatActivity implements TimePickerDial
         else
         {
             showToast("No Paired Devices");
-            mBTDevice = null;
         }
 
         List<Integer> switchID = Arrays.asList(
@@ -171,7 +173,7 @@ public class ScheduleMorning extends AppCompatActivity implements TimePickerDial
         uploadScheduleButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if(mmSocket.isConnected())
+                if(mBTDevice != null)
                 {
                     String msg = "SCH_DAY-";
 
@@ -218,6 +220,10 @@ public class ScheduleMorning extends AppCompatActivity implements TimePickerDial
                     }
 
                     connectedThread.write(msg);
+                }
+                else
+                {
+                    showToast("No Paired Devices");
                 }
             }
         });

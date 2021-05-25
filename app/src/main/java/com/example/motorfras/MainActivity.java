@@ -24,7 +24,7 @@ import java.util.Set;
 import java.util.UUID;
 import java.io.InputStream;
 import java.io.OutputStream;
-import static java.lang.Integer.parseInt;
+import static java.lang.Float.parseFloat;
 
 public class MainActivity extends AppCompatActivity{
     public static TextView tempSens;
@@ -33,7 +33,8 @@ public class MainActivity extends AppCompatActivity{
     SwitchCompat switchCompat;
 
     private static final String TAG = "MainActivity";
-    BluetoothDevice mBTDevice;
+    private static boolean isFahrenheit = false;
+    BluetoothDevice mBTDevice = null;
 
     public static BluetoothSocket mmSocket;
     public static ConnectedThread connectedThread;
@@ -75,18 +76,25 @@ public class MainActivity extends AppCompatActivity{
         tempSens            = findViewById(R.id.tempSensTv);
         dateStatePref       = getSharedPreferences("tempSwitchState", MODE_PRIVATE);
 
+        isFahrenheit = dateStatePref.getBoolean("tempSwitchState", false);
+
         BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
 
-        //FUTURE WORK: CACHE THE HARDWARE ADDRESS WHICH IS ACQUIRED
-        //FROM A LIST THAT THE USER CAN SELECT WHAT DEVICE TO USE
+        SharedPreferences hardwareAddressPref = getSharedPreferences("hardwareAddress", MODE_PRIVATE);
+        String hwAddress = hardwareAddressPref.getString("hardwareAddress", "");
+
         for(BluetoothDevice device : pairedDevices)
         {
             Log.d(TAG, device.getName());
-            mBTDevice = device;
+            Log.d("--hwAddress--", hwAddress);
+            if(hwAddress.equals(device.getAddress()))
+            {
+                mBTDevice = device;
+            }
         }
 
-        if(pairedDevices.size() > 0)
+        if(mBTDevice != null)
         {
             createConnectThread = new CreateConnectThread(mBluetoothAdapter, mBTDevice.getAddress());
             createConnectThread.start();
@@ -94,7 +102,6 @@ public class MainActivity extends AppCompatActivity{
         else
         {
             showToast("No Paired Devices");
-            mBTDevice = null;
         }
 
 
@@ -320,35 +327,41 @@ public class MainActivity extends AppCompatActivity{
             byte[] buffer = new byte[1024];  // buffer store for the stream
             int bytes = 0; // bytes returned from read()
             // Keep listening to the InputStream until an exception occurs
-            while (true) {
-                try {
+            while(true)
+            {
+                try
+                {
                     /*
                     Read from the InputStream from Arduino until termination character is reached.
-                    Then send the whole String message to GUI Handler.
                      */
                     buffer[bytes] = (byte) mmInStream.read();
                     String readMessage;
-                    if (buffer[bytes] == '\n'){
-                        readMessage = new String(buffer,0,bytes);
-                        int n = parseInt(readMessage);
+                    if (buffer[bytes] == '\n')
+                    {
+                        readMessage = new String(buffer,0, bytes);
 
-                        if(dateStatePref.getBoolean("tempSwitchState", false) == true)
+                        float n = parseFloat(readMessage);
+                        if(isFahrenheit)
                         {
-                            n = n * (9/5) + 32;
-                            tempSens.setText(String.valueOf(n) + "°F");
+                            n = (n * (9/5) ) + 32;
+                            tempSens.setText("" + n + "°F");
                         }
                         else
                         {
-                            tempSens.setText(String.valueOf(n) + "°C");
+                            tempSens.setText("" + n + "°C");
                         }
                         Log.e("Arduino Message",readMessage);
 
                         //handler.obtainMessage(MESSAGE_READ,readMessage).sendToTarget();
                         bytes = 0;
-                    } else {
+                    }
+                    else
+                    {
                         bytes++;
                     }
-                } catch (IOException e) {
+                }
+                catch (IOException e)
+                {
                     e.printStackTrace();
                     break;
                 }

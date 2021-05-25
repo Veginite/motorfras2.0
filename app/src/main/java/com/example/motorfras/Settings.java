@@ -19,6 +19,12 @@ public class Settings extends AppCompatActivity {
     private Button buttonDevice;
     SwitchCompat switchCompat;
 
+    //When the app is closed
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +58,6 @@ public class Settings extends AppCompatActivity {
         });
 
         //-----------------------------------------
-
-
 
         buttonDevice = (Button) findViewById(R.id.buttonDevices);
         buttonDevice.setOnClickListener(new View.OnClickListener() {
