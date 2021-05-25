@@ -24,6 +24,7 @@ import java.util.Set;
 import java.util.UUID;
 import java.io.InputStream;
 import java.io.OutputStream;
+import static java.lang.Integer.parseInt;
 
 public class MainActivity extends AppCompatActivity{
     public static TextView tempSens;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity{
 
     private final static int CONNECTING_STATUS = 1; // used in bluetooth handler to identify message status
     private final static int MESSAGE_READ = 2; // used in bluetooth handler to identify message update
+    private static SharedPreferences dateStatePref;
 
 
     //When the app is closed
@@ -71,6 +73,7 @@ public class MainActivity extends AppCompatActivity{
         launchSettings      = findViewById(R.id.Settings);
         switchCompat        = findViewById(R.id.switchOnOff);
         tempSens            = findViewById(R.id.tempSensTv);
+        dateStatePref       = getSharedPreferences("tempSwitchState", MODE_PRIVATE);
 
         BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
@@ -327,8 +330,19 @@ public class MainActivity extends AppCompatActivity{
                     String readMessage;
                     if (buffer[bytes] == '\n'){
                         readMessage = new String(buffer,0,bytes);
+                        int n = parseInt(readMessage);
+
+                        if(dateStatePref.getBoolean("tempSwitchState", false) == true)
+                        {
+                            n = n * (9/5) + 32;
+                            tempSens.setText(String.valueOf(n) + "°F");
+                        }
+                        else
+                        {
+                            tempSens.setText(String.valueOf(n) + "°C");
+                        }
                         Log.e("Arduino Message",readMessage);
-                        tempSens.setText(readMessage);
+
                         //handler.obtainMessage(MESSAGE_READ,readMessage).sendToTarget();
                         bytes = 0;
                     } else {
